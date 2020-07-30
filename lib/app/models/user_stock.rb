@@ -1,7 +1,8 @@
 
 class User_stock
 
-attr_accessor :stock, :investor
+    attr_accessor :stock, :investor
+
     def initialize(stock, investor)
         @stock=stock
         @investor=investor
@@ -9,7 +10,7 @@ attr_accessor :stock, :investor
 end
 
 
-end
+def 
 
 
 
