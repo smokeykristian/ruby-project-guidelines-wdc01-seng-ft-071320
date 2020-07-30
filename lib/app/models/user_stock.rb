@@ -1,14 +1,16 @@
+# require_relative ""
+#  require('./lib,/investor')
+require_all 'lib'
+class User_stock
 
-# class User_stock
+    attr_reader :stock, :investor
 
-#     attr_accessor :stock, :investor
-
-#     def initialize(stock, investor, stock_price = )
-#         @stock=stock
-#         @stock_price = stock_price
-#         @investor=investor
-#     end
-# end
+    def initialize(stock, investor)
+        @stock=stock
+        # @stock_price = stock_price
+        @investor=investor
+    end
+end
 
 
 
