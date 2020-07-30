@@ -12,6 +12,7 @@
 require 'net/http'
 require 'open-uri'
 require 'json'
+
 class Tty
 @@client = Alphavantage::Client.new key: "NZYSJMCTOOP2IZ1Q"
   @@prompt = TTY::Prompt.new
