@@ -3,10 +3,16 @@ require 'open-uri'
 require 'json'
 require 'pry'
 require 'tty-prompt'
+require "alphavantagerb"
+
 class GetStock
-  $function= ""
-  def fetch(function,key_word, symbol) #functions available are GLOBAL_QUOTE , SYMBOL_SEARCH , OVERVIEW
+
+  
+function= ""
+  def fetch #functions available are GLOBAL_QUOTE , SYMBOL_SEARCH , OVERVIEW
     url = "https://www.alphavantage.co/query?function=#{function}&#{key_word}=#{symbol}&apikey=NZYSJMCTOOP2IZ1Q"
+
+
   end
 
   def get_stock
@@ -36,18 +42,18 @@ end
   end
   
 
-  $prompt = TTY::Prompt.new
+  prompt = TTY::Prompt.new
   system("clear")
 
 
-  $function = $prompt.select("Enter function you would like to use!",["SYMBOL_SEARCH","OVERVIEW","GLOBAL_QUOTE"])  
+  function = prompt.select("Enter function you would like to use!",["SYMBOL_SEARCH","OVERVIEW","GLOBAL_QUOTE"])  
   
-  if $function == "SYMBOL_SEARCH"
-    $key_word = "keywords"
-    $prompt = TTY::Prompt.new
+  if function == "SYMBOL_SEARCH"
+    key_word = "keywords"
+    prompt = TTY::Prompt.new
     system("clear")
     
-    $symbol = $prompt.ask("Thank you for selecting symbol search!\n
+    symbol = prompt.ask("Thank you for selecting symbol search!\n
       Please enter alphabetical characters for the symbol you are looking for!\n
       I will return you a list of all the possible symbol I think you are seeking :)!")
 
@@ -56,19 +62,19 @@ end
      puts best_match
      
 
-  elsif $function == "OVERVIEW"
-    $key_word = "symbol"
-    $prompt = TTY::Prompt.new
+  elsif function == "OVERVIEW"
+    key_word = "symbol"
+    prompt = TTY::Prompt.new
     system("clear")
-    $symbol = $prompt.ask( "Thank you for selecting stock overview! \n
+    symbol = prompt.ask( "Thank you for selecting stock overview! \n
       Please enter the symbol of the stock for which you would like an overview!")
      puts  stock_info
     
-  elsif $function ==  "GLOBAL_QUOTE"
-    $key_word = "symbol"
-    $prompt = TTY::Prompt.new
+  elsif function ==  "GLOBAL_QUOTE"
+    key_word = "symbol"
+    prompt = TTY::Prompt.new
     system("clear")
-    $symbol = $prompt.ask( "Thank you for selecting stock global quote! \n
+    symbol = prompt.ask( "Thank you for selecting stock global quote! \n
       Please enter the symbol of the stock for which you would like the numerical data of!")
   end
 
