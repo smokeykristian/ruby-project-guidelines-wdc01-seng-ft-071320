@@ -14,8 +14,15 @@ def self.all
     @@all
 end
 
-def  buy_stock
-    
+def  buy_stock(ticker)
+    User_stock.new(ticker,self)
+      stock = @@client.stock symbol: "#{stock}"
+      stock_quote = stock.quote
+    if balance >= stock_quote.price 
+    balance - stock_quote.price 
+    else 
+        puts "Sorry, you do not have enought balance for this Transaction"
+    end
 end
 
 def sell_stock
