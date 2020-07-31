@@ -1,14 +1,4 @@
-# prompt = TTY::Prompt.new(prefix: "[?] ")
 
-# result = prompt.collect do
-#   key(:name).ask("Name?")
-
-#   #key(:stock_id).ask("stock_id?", convert: :int)
-
-#   end
-# end
-
-# puts JSON.pretty_generate(result)
 require 'net/http'
 require 'open-uri'
 require 'json'
