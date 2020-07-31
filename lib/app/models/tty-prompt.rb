@@ -10,14 +10,39 @@ class Tty
   def self.prompt
   @@prompt 
   end
+  def self.investor_prompt
+    system("clear")
+  
+    investor = self.prompt.ask("What is your name?")
+    balance = self.prompt.ask("How much would you like to create your account with?", convert: :int)
+    Investor.new(investor, balance)
+    user_function =  self.prompt.select("Enter User function you would like to use!",["Buy Stock","Sell Stock"])  
+    if user_function == "Buy Stock"
+      system("clear")
+      bought_stocks = self.prompt.ask(" Please enter the ticker of the stock you would like to buy!")
+      
+        stock = @@client.stock symbol: "#{bought_stocks}"
+        stock_quote = stock.quote
+        if balance >=  stock_quote.price.to_i
+        balance -= stock_quote.price.to_i
+        User_stock.new(bought_stocks,investor)
+        else 
+            puts "Sorry, you do not have enought balance for this Transaction"
+        end
+
+      else user_function =="Sell Stock"
+        system("clear")
+        sold_stock = self.prompt.ask("What is the ticker of the stock you would like to sell?")
+        stock = @@client.stock symbol: "#{sold_stock}"
+        stock_quote = stock.quote
+        balance += stock_quote.price.to_i
+        User_stock.all.delete_if{|k,v| k == sold_stock && v(sold_stock,investor)}
+      
+      end 
+  end
+
 
   def self.prompts
-  
-  system("clear")
-
-  investor = self.prompt.ask("what is your name?")
-
-
   function =  self.prompt.select("Enter function you would like to use!",["SYMBOL_SEARCH","OVERVIEW","GLOBAL_QUOTE"])  
   
   if function == "SYMBOL_SEARCH"
@@ -54,9 +79,10 @@ class Tty
         
         puts(value)
       end
-return nil
+  return nil
     end
   end
+end
  
  
 #   def self.user_prompts
@@ -96,6 +122,6 @@ return nil
 
 # end
     
-end
+
 
 

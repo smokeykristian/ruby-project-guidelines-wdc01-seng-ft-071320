@@ -1,12 +1,15 @@
 
 class Stock
+@@all = []
+  def initialize (symbol = "IBM")
+    @symbol = symbol
+    @all << self
+    
+  end
 
-def initialize (symbol = "IBM")
-  @symbol = symbol
-  
-  
-end
-
+  def self.all
+    @@all
+  end
 end
 
 
