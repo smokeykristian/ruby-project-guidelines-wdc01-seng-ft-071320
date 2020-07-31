@@ -2,7 +2,10 @@
 require 'net/http'
 require 'open-uri'
 require 'json'
+<<<<<<< HEAD
+=======
 
+>>>>>>> 4717ae7798819dcc6c1a83bf0b44191c4cb10b50
 class Tty
 
 @@client = Alphavantage::Client.new key: "NZYSJMCTOOP2IZ1Q"
@@ -120,7 +123,28 @@ end
 #     sold_stock = self.prompt.ask("What is the ticker of the stock you would like to sell?")
 #   end 
 
+<<<<<<< HEAD
+  elsif user_function =="Add balance"
+      system("clear")
+
+    added_balance =self.prompt.ask("How much would you like to add?", convert: :int)
+
+    Investor.balance += added_balance
+  puts "Your new balance is #{Investor.balance}"
+
+    
+
+  else
+    user_function =="Sell Stock"
+    system("clear")
+  sold_stock = self.prompt.ask("What is the ticker of the stock you would like to sell?")
+
+
+  end
+
+=======
 # end
+>>>>>>> 4717ae7798819dcc6c1a83bf0b44191c4cb10b50
     
 
 
