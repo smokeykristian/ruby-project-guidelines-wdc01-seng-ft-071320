@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-require "pry"
-require_all 'lib'
-#require 'tty-prompt'
-=======
-
-
->>>>>>> 4717ae7798819dcc6c1a83bf0b44191c4cb10b50
 class Investor
     attr_reader :name
     attr_accessor  :balance
@@ -20,9 +12,17 @@ class Investor
         
     end
 
-
     def self.all
         @@all
     end
 
+    # def check_balance 
+    #       User_stock.all.each do |investors|
+    #     investors.balance 
+    #      end
+    # end
+    
+    # def add_balance(num)
+    #     Investor.balance += num
+    # end
 end
