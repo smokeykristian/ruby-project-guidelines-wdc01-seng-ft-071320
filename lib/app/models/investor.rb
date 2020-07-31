@@ -6,29 +6,23 @@ require_all 'lib'
 
  #4717ae7798819dcc6c1a83bf0b44191c4cb10b50
 class Investor
+    attr_reader :name
+    attr_accessor  :balance
 
-    attr_accessor :name
 
-
-    @@balance= 0
+    
     @@all =[]
-    def initialize(name='')
-        #@user_stock=user_stock       
+    def initialize(name="#{investor}",balance)       
         @name=name
-        
+        @balance = balance
         @@all<<self
-        @@balance <<self
+        
     end
 
 
-def self.all
-    @@all
-end
-
-def self.balance
-    @@balance
-end
-
+    def self.all
+        @@all
+    end
 
 
 # def buy_stock 

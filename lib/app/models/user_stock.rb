@@ -2,10 +2,11 @@
 #  require('./lib,/investor')
 class User_stock
 @@all=[]
-    attr_reader :stock, :investor
 
-    def initialize(stock, investor)
-        @stock=stock
+    attr_reader :ticker, :investor
+
+    def initialize(ticker, investor)
+        @ticker=ticker
         @investor=investor
 
         @@all << self
