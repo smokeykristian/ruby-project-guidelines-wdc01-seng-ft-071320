@@ -1,11 +1,10 @@
-<<<<<<< HEAD
+#HEAD
 require "pry"
 require_all 'lib'
 #require 'tty-prompt'
-=======
 
 
->>>>>>> 4717ae7798819dcc6c1a83bf0b44191c4cb10b50
+ #4717ae7798819dcc6c1a83bf0b44191c4cb10b50
 class Investor
 
     attr_accessor :name
@@ -31,7 +30,6 @@ def self.balance
 end
 
 
-end
 
 # def buy_stock 
 
@@ -55,4 +53,4 @@ end
 
 # def stocks_boughtd
 
-#end
+end
