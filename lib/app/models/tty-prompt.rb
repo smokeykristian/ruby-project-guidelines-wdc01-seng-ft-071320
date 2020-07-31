@@ -56,8 +56,25 @@ class Tty
       Please enter the symbol of the stock for which you would like the daily numerical data of!")
       stock = @@client.stock symbol: "#{ticker}"
       timeseries = stock.timeseries #
-      timeseries.output
-
+      stock_output_data = timeseries.output
+      stock_output_data.each do |s,value|
+        puts(s)
+      end
+return nil
     end
   end
+  #function =  self.prompt.select("Enter function you would like to use!",["SYMBOL_SEARCH","OVERVIEW","GLOBAL_QUOTE"])  
+  
+
+#   def  self.buy_stock(ticker)
+#     User_stock.new(ticker,self)
+#       stock = @@client.stock symbol: (stock)
+#       stock_quote = stock.quote
+#     if balance >= stock_quote.price 
+#     balance - stock_quote.price 
+#     else 
+#         puts "Sorry, you do not have enought balance for this Transaction"
+#     end
+    
+# end
 end
