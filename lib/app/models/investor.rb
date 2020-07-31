@@ -19,7 +19,6 @@ class Investor
         
     end
 
-
     def self.all
         @@all
     end
