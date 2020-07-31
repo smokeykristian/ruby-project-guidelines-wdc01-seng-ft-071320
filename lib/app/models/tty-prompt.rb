@@ -1,21 +1,11 @@
-# prompt = TTY::Prompt.new(prefix: "[?] ")
 
-# result = prompt.collect do
-#   key(:name).ask("Name?")
-
-#   #key(:stock_id).ask("stock_id?", convert: :int)
-
-#   end
-# end
-
-# puts JSON.pretty_generate(result)
 require 'net/http'
 require 'open-uri'
 require 'json'
+require 'tty-prompt'
 class Tty
 @@client = Alphavantage::Client.new key: "NZYSJMCTOOP2IZ1Q"
   @@prompt = TTY::Prompt.new
-  
   def self.prompt
   @@prompt 
   end
@@ -23,6 +13,8 @@ class Tty
   def self.prompts
   
   system("clear")
+
+  investor = self.prompt.ask("what is your name?")
 
 
   function =  self.prompt.select("Enter function you would like to use!",["SYMBOL_SEARCH","OVERVIEW","GLOBAL_QUOTE"])  
@@ -57,23 +49,59 @@ class Tty
       timeseries = stock.timeseries #
       stock_output_data = timeseries.output
       stock_output_data.each do |s,value|
+        
         puts(s)
       end
 return nil
     end
   end
-  #function =  self.prompt.select("Enter function you would like to use!",["SYMBOL_SEARCH","OVERVIEW","GLOBAL_QUOTE"])  
+  user_function =  self.prompt.select("Enter User function you would like to use!",["Buy Stock", "Check Balance","Add balance","Sell Stock"])  
   
 
-#   def  self.buy_stock(ticker)
-#     User_stock.new(ticker,self)
-#       stock = @@client.stock symbol: (stock)
-#       stock_quote = stock.quote
-#     if balance >= stock_quote.price 
-#     balance - stock_quote.price 
-#     else 
-#         puts "Sorry, you do not have enought balance for this Transaction"
-#     end
+
+
+
+  if user_function == "Buy Stock"
+    system("clear")
+    bought_stocks = self.prompt.ask(" Please enter the ticker of the stock you would like to buy!")
+      
+    User_stock.new(bought_stocks,investor)
+      stock = @@client.stock symbol: (stock)
+      stock_quote = stock.quote
+    if balance >= stock_quote.price 
+    balance - stock_quote.price 
+    else 
+        puts "Sorry, you do not have enought balance for this Transaction"
+    end
     
-# end
+
+    elsif user_function == "Check Balance"
+        system("clear")
+        my_balance = Investor.balance
+        puts " Your balance #{"my_balance"}"
+      
+    
+
+
+  elsif user_function =="Add balance"
+      system("clear")
+
+    added_balance =self.prompt.ask("How much would you like to add?", convert: :int)
+
+    Investor.balance += added_balance
+  #puts "Your new balance is #{Investor.balance}"
+
+    
+
+  else
+    user_function =="Sell Stock"
+    system("clear")
+  sold_stock = self.prompt.ask("What is the ticker of the stock you would like to sell?")
+
+
+  end
+
+    
+
+
 end
