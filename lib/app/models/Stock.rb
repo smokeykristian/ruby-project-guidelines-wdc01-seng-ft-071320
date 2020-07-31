@@ -3,10 +3,10 @@
 
 
 
-# class Stock
+class Stock
 
-# def initialize (symbol = "IBM")
-#   @symbol = symbol
+def initialize (symbol = "IBM")
+  @symbol = symbol
 
 #   def investors
 
@@ -15,7 +15,7 @@
 
   
   
-# end
+end
 
 
 
