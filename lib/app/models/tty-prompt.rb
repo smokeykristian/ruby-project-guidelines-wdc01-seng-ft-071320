@@ -2,11 +2,6 @@
 require 'net/http'
 require 'open-uri'
 require 'json'
-<<<<<<< HEAD
-require 'tty-prompt'
-=======
-
->>>>>>> 6d9143832e00b7df0292de8a05ef01c2733c8a93
 class Tty
 @@client = Alphavantage::Client.new key: "NZYSJMCTOOP2IZ1Q"
   @@prompt = TTY::Prompt.new
@@ -93,7 +88,7 @@ return nil
     added_balance =self.prompt.ask("How much would you like to add?", convert: :int)
 
     Investor.balance += added_balance
-  #puts "Your new balance is #{Investor.balance}"
+  puts "Your new balance is #{Investor.balance}"
 
     
 

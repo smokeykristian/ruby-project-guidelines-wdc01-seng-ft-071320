@@ -1,6 +1,6 @@
 require "pry"
 require_all 'lib'
-require 'tty-prompt'
+#require 'tty-prompt'
 class Investor
 
     attr_accessor :name
