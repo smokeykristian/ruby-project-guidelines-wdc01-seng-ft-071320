@@ -1,8 +1,4 @@
 
-
-
-
-
 class Stock
 
 def initialize (symbol = "IBM")
